@@ -30,6 +30,7 @@
 
 #include <functional>
 #include <memory>
+#include <string>
 #include <utility>
 
 #include <rclcpp/rclcpp.hpp>
@@ -349,7 +350,8 @@ TEST(Subscriber, node_interfaces)
   ASSERT_GT(h.count_, 0);
 }
 
-TEST(Subscriber, topicNoRemap) {
+TEST(Subscriber, topicNoRemap)
+{
   auto node = std::make_shared<rclcpp::Node>("test_node");
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
@@ -364,7 +366,8 @@ TEST(Subscriber, topicNoRemap) {
               reported_topic == "/" + original_topic_name);
 }
 
-TEST(Subscriber, topicWithRemap) {
+TEST(Subscriber, topicWithRemap)
+{
   const std::string original_topic_name = "test_topic";
   const std::string remapped_topic_name = "remapped_topic";
   // Create node with remap arguments
